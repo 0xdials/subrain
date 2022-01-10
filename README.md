@@ -6,10 +6,15 @@ crappy bash script that automates subdomain enumeration. relies heavily on tools
 ## dependencies
 
 sublist3r
+
 assetfinder
+
 httprobe
+
 anew
+
 probably more by the time this is done.
+
 
 ## usage
 
