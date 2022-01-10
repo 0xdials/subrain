@@ -1,6 +1,6 @@
 # subrain
 
-crappy bash script that automates subdomain enumeration. this was quickly thrown togethe as a skeleton for a future project. it also relies heavily on tools written by other, smarter hackers.
+crappy bash script that automates subdomain enumeration. this was quickly thrown together as a skeleton for a future project. it also relies heavily on tools written by other, smarter hackers.
 
 
 ## dependencies
@@ -18,7 +18,7 @@ crappy bash script that automates subdomain enumeration. this was quickly thrown
 ./subrain.sh <input_file>
 ```
 
-where ""input_file" is a list of subomains you want to enumerate, seperated by newline. the following format works best.
+where ""input_file" is a list of subomains you want to enumerate, separated by newline. the following format works best.
 ```
 domain.com
 foo.domain.com
