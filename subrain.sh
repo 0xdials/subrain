@@ -39,19 +39,19 @@ made by dials, this is very ugly and possibly broken... ¯\_(ツ)_/¯"
 	echo "$(wc -l < $1_domains) domains are sitting in file \"$1_domains\""
 	echo
 	echo "Beginning recursive domain enumeration..."
-	rm thirdlevel.tmp
+	
+	rm -f -- thirdlevel.tmp
+
 	grep -Po "(\w+\.\w+\.\w+)$" $1_domains | anewer thirdlevel.tmp &>/dev/null
+	echo
+	echo "running assetfinder on 3rd level domains, this may take a while..."
 
-	echo "running assetfinder on 3rd level domains..."
+	cat thirdlevel.tmp | assetfinder | anewer $1_domains &>/dev/null
 
-	for domain in thirdlevel.tmp
-	do
-		cat $domain | assetfinder | anewer $1_domains &>/dev/null
-	done
 	echo 
 	echo "$(wc -l < $1_domains) domains are now sitting in file \"$1_domains\""
 
-	rm thirdlevel.tmp
+	rm -r -- thirdlevel.tmp
 
 	echo
 	echo "done! complete domain list can be found here: \"$1_domains\""
