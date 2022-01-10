@@ -5,6 +5,9 @@ CYAN="36"
 BOLDCYAN="\e[1;${CYAN}m"
 NORM="\e[0m"
 
+
+
+
 if [ $# -ne 1 ]
 	then
     	echo "you goofed"
@@ -32,28 +35,30 @@ made by dials, this is very ugly and possibly broken... ¯\_(ツ)_/¯"
 	sleep 1s
 
 	echo -e "running assetfinder on ${BOLDCYAN}${1}${NORM}"
-
+	# first round of domain enumeration
+	# creates a new file and only adds unique domains
 	cat $1| assetfinder | anewer $1_domains &>/dev/null #anew gh: https://github.com/tomnomnom/anew
 	
 	echo
-	echo "$(wc -l < $1_domains) domains are sitting in file \"$1_domains\""
-	echo
-	echo "Beginning recursive domain enumeration..."
+	echo -e "$(wc -l < $1_domains) domains are sitting in file ${BOLDCYAN}\"$1_domains\"${NORM}"
 	
-	rm -f -- thirdlevel.tmp
+	# # removes anything other than 'foo.domain.com' and reruns assetfinder, essentially a weird spidering replacement
+	# echo
+	# echo "Beginning recursive domain enumeration..."
+	# rm -f -- $1_thirdlevel.tmp
+	# grep -Po "(\w+\.\w+\.\w+)$" $1_domains | anewer $1_thirdlevel.tmp &>/dev/null
+	# echo
+	# echo "running assetfinder on 3rd level domains, this may take a while..."
+	# cat $1_thirdlevel.tmp | assetfinder | anewer $1_domains &>/dev/null
+	# echo 
+	# echo "$(wc -l < $1_domains) domains are now sitting in file \"$1_domains\""
+	# rm -r -- $1_thirdlevel.tmp
 
-	grep -Po "(\w+\.\w+\.\w+)$" $1_domains | anewer thirdlevel.tmp &>/dev/null
+	# runs the output of the previous steps through httprobe
+	# creates a new file named "hosts" with only live hosts
+	cat $1_domains | httprobe -c 80 -prefer-https | anewer $1_hosts &>/dev/null
+	echo -e "$(wc -l < $1_hosts) hosts are sitting in file ${BOLDCYAN}\"$1_hosts\"${NORM}"
 	echo
-	echo "running assetfinder on 3rd level domains, this may take a while..."
-
-	cat thirdlevel.tmp | assetfinder | anewer $1_domains &>/dev/null
-
-	echo 
-	echo "$(wc -l < $1_domains) domains are now sitting in file \"$1_domains\""
-
-	rm -r -- thirdlevel.tmp
-
-	echo
-	echo "done! complete domain list can be found here: \"$1_domains\""
+	echo -e "done. created files: ${BOLDCYAN}\"$1_domains\" \"$1_hosts\"${NORM}"
 fi
 
