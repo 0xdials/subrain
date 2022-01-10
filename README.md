@@ -1,11 +1,10 @@
 # subrain
 
-crappy bash script that automates subdomain enumeration. this was quickly thrown together as a skeleton for a future project. it also relies heavily on tools written by other, smarter hackers.
+bash script that automates subdomain enumeration. this was quickly thrown together as a skeleton for a future project. it also relies heavily on tools written by other, smarter hackers.
 
 
 ## dependencies
 
-* sublist3r
 * assetfinder
 * httprobe
 * anew (using anewer on arch)
@@ -26,8 +25,8 @@ bar.domain.com
 
 ## todo list
 
-* add sublist3r support
-* add httprobe support
+* add masscan
+* add sublist3r 
 * add screenshot capabilities
 * add various flags including verbose
 * rewrite in different language, removing several dependencies
