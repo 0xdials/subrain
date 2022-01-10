@@ -5,15 +5,11 @@ crappy bash script that automates subdomain enumeration. relies heavily on tools
 
 ## dependencies
 
-sublist3r
-
-assetfinder
-
-httprobe
-
-anew
-
-probably more by the time this is done.
+*sublist3r
+*assetfinder
+*httprobe
+*anew
+*probably loads more by the time this thing is done.
 
 
 ## usage
@@ -23,6 +19,5 @@ probably more by the time this is done.
 ```
 
 where ""input_file" is a list of subomains you want to enumerate, seperated by newline
-
 
 
