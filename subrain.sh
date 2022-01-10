@@ -27,7 +27,7 @@ else
                         ░                                   
  
 
-made by dials, this is very ugly and prossibly broken... ¯\_(ツ)_/¯"
+made by dials, this is very ugly and possibly broken... ¯\_(ツ)_/¯"
 
 	sleep 1s
 
