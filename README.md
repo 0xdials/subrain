@@ -5,11 +5,11 @@ crappy bash script that automates subdomain enumeration. relies heavily on tools
 
 ## dependencies
 
-*sublist3r
-*assetfinder
-*httprobe
-*anew
-*probably loads more by the time this thing is done.
+* sublist3r
+* assetfinder
+* httprobe
+* anew
+* probably loads more by the time this thing is done.
 
 
 ## usage
