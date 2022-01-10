@@ -9,7 +9,6 @@ crappy bash script that automates subdomain enumeration. this was quickly thrown
 * assetfinder
 * httprobe
 * anew (using anewer on arch)
-* probably loads more by the time this thing is done.
 
 
 ## usage
@@ -18,7 +17,7 @@ crappy bash script that automates subdomain enumeration. this was quickly thrown
 ./subrain.sh <input_file>
 ```
 
-where ""input_file" is a list of subomains you want to enumerate, separated by newline. the following format works best.
+where "input_file" is a list of subomains you want to enumerate, separated by newline. the following format works best.
 ```
 domain.com
 foo.domain.com
