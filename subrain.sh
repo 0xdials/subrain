@@ -35,13 +35,25 @@ made by dials, this is very ugly and prossibly broken... ¯\_(ツ)_/¯"
 
 	cat $1| assetfinder | anewer $1_domains &>/dev/null #anew gh: https://github.com/tomnomnom/anew
 	
+	echo
 	echo "$(wc -l < $1_domains) domains are sitting in file \"$1_domains\""
+	echo
+	echo "Beginning recursive domain enumeration..."
+	rm thirdlevel.tmp
+	grep -Po "(\w+\.\w+\.\w+)$" $1_domains | anewer thirdlevel.tmp &>/dev/null
+
 	echo "running assetfinder on 3rd level domains..."
 
-	for domain in $1_domains
+	for domain in thirdlevel.tmp
 	do
-		cat $domain | assetfinder | anewer $1_domains $>/dev/null
+		cat $domain | assetfinder | anewer $1_domains &>/dev/null
 	done
+	echo 
+	echo "$(wc -l < $1_domains) domains are now sitting in file \"$1_domains\""
 
+	rm thirdlevel.tmp
 
+	echo
+	echo "done! complete domain list can be found here: \"$1_domains\""
 fi
+
