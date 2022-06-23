@@ -23,7 +23,7 @@ foo.domain.com
 bar.domain.com
 ```
 
-## todo list
+## todo
 
 * add masscan
 * add sublist3r 
