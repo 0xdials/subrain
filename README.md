@@ -27,7 +27,7 @@ bar.domain.com
 
 * add masscan
 * add sublist3r 
-* add screenshot capabilities
+* add screenshot capabilities (via aquatone)
 * add various flags including verbose
 * rewrite in different language, removing several dependencies
 
